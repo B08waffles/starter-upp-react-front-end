@@ -1,0 +1,9 @@
+/.parcel-cache
+
+/.cache
+
+/.vscode
+
+/dist
+
+/node_modules
