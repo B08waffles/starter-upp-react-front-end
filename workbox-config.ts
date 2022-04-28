@@ -8,11 +8,12 @@
 //   }
 
 module.exports = {
-  "globDirectory": "build/",
+  "globDirectory": "dist/",
   "globPatterns": [
-    "**/*.{png,ico,html,svg,webmanifest,js,css}"
+    "**/*.{html,png,ico,svg,webmanifest,js,css}"
   ],
-  "swDest": "build\\service-worker.js",
+  "swDest": "dist/service-worker.js",
   skipWaiting: true,
-  clientsClaim: true
+  clientsClaim: true,
+  "navigateFallback": "/index.html"
 };

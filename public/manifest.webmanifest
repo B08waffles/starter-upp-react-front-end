@@ -4,8 +4,8 @@
     "theme_color": "#27bfd0",
     "background_color": "#191647",
     "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "*",
+    "start_url": "*",
     "icons": [
         {
             "src": "./images/starterupplogo192.png",
