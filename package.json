@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
     "clean": "rm -rf dist",
-    "build": "parcel build src/index.html",
+    "build": "parcel build ",
     "workbox": "workbox generateSW workbox-config.ts",
     "postbuild": "npm run workbox",
     "serve-build": "npm run build && serve -s dist"
@@ -29,7 +29,6 @@
     "@types/react": "^17.0.44",
     "@types/react-dom": "^17.0.15",
     "bundler": "^0.8.0",
-    "eslint-config-prettier": "^8.5.0",
     "parcel": "^2.4.1",
     "process": "^0.11.10",
     "serve": "^13.0.2",
