@@ -2,19 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="../public/manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#27bfd0">
+    <link rel="manifest" href="./manifest.webmanifest">
     <title>Starter Upp</title>
   </head>
   <body>
     <div id="root"></div>
     <!-- <script>
-      if ('serviceWorker' in navigator) {window.addEventListener('load', function() {navigator.serviceWorker.register(`../public/serviceWorker.ts`).then(function(registration)
-         {// Registration was successful
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);}, function(err) {
-            // registration failed :
-            console.log('ServiceWorker registration failed: ', err);});});}
-    </script> -->
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register(new URL('/service-worker.js'))
+          console.log('🎉 Service Worker Ready');
+        });
+      }
+      </script> -->
+     
     <script src="./index.tsx" type="module"></script>
+    <script src="./registerServiceWorker.ts" type="module"></script>
   </body>
 </html>

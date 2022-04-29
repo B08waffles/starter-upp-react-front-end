@@ -2,18 +2,18 @@
     "name": "Starter Upp | Capitalisation System",
     "short_name": "Starter Upp",
     "theme_color": "#27bfd0",
-    "background_color": "#191647",
+    "background_color": "#141445",
     "display": "standalone",
     "scope": "*",
     "start_url": "*",
     "icons": [
         {
-            "src": "./images/starterupplogo192.png",
+            "src": "../public/images/starterupplogo192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "./images/starterupplogo512.png",
+            "src": "../public/images/starterupplogo512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
