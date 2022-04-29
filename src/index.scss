@@ -1,9 +1,9 @@
-// overwrite theme variables
+// overwrite bootstrap theme variables to give us our own flavour of theme
 
-$primary: #BB86FC;
-$secondary: #03DAC6;
+$primary: #bb86fc;
+$secondary: #03dac6;
 $dark: #121212;
-$light: #F8F8F2;
+$light: #f8f8f2;
 $success: #7100b3;
 $info: #1900ff;
 $warning: #e00000;
@@ -12,172 +12,167 @@ $danger: #ff002f;
 $alternativebg: #1c1629;
 $alternativetext: #dcc2f5;
 
+// Specify some more specific theme choices for certain classes and elements
+
 body {
-    background-color: $dark !important;
+  background-color: $dark !important;
 }
 
 .card-header {
-    background-color: #03dac541 !important;
+  background-color: #03dac541 !important;
 }
 .ThreeBlindMice {
-    background-color: #0b6e66 !important;
-    border-color: #028a7c71 !important;
+  background-color: #0b6e66 !important;
+  border-color: #028a7c71 !important;
 }
 
 Button {
-    background-color: #03dac5 !important;
+  background-color: #03dac5 !important;
 }
 
 span.navbar-toggler-icon {
-    background-color: #03dac500 !important;
-    color: $dark !important;
+  background-color: #03dac500 !important;
+  color: $dark !important;
 }
 
 .card-body {
-    background-color: #00353038;
+  background-color: #00353038;
 }
 
 .list-group-item {
-   background-color:rgba(0, 87, 79, 0.322) !important; 
-   color: #F8F8F2 !important;
+  background-color: rgba(0, 87, 79, 0.322) !important;
+  color: #f8f8f2 !important;
 }
 
 #rumpledoop {
-    background-color: $dark !important;
-    color: $light !important;
+  background-color: $dark !important;
+  color: $light !important;
 }
 
 #rumpleboop {
-    background-color: $dark !important;
-    color: $light !important;
+  background-color: $dark !important;
+  color: $light !important;
 }
 
 .form-control {
-    background-color:rgb(36, 36, 36) !important; 
-    color: #F8F8F2 !important;
+  background-color: rgb(36, 36, 36) !important;
+  color: #f8f8f2 !important;
 }
 
 span {
-    background-color: $dark !important;
-    color: $light !important;
+  background-color: $dark !important;
+  color: $light !important;
 }
 
+// The following section depicts what our alternative theme should look like
+// where we switch theme on the /settings page
+
 .light {
+  background-color: $alternativebg !important;
+  color: $alternativetext !important;
+
+  div {
     background-color: $alternativebg !important;
     color: $alternativetext !important;
+  }
+  form {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  h1 {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  Card {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  LeNavBar {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  nav {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  Card.Text {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  Form.Control {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  div.div {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  div.div.div {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  .text-white {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  .navbar-dark {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  .navbar-dark .navbar-dark {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  .bg-dark {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+  }
+  .card-header {
+    background-color: #9d03da41 !important;
+  }
+  .ThreeBlindMice {
+    background-color: #3d0155 !important;
+    border-color: #63028a71 !important;
+  }
 
-    div {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    form {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    h1 {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    Card {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    LeNavBar {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    nav {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    Card.Text {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    Form.Control {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    div.div {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    div.div.div {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    .text-white {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    .navbar-dark {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    .navbar-dark .navbar-dark {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    .bg-dark {
-        background-color: $alternativebg !important;
-        color: $alternativetext !important;
-    }
-    .card-header {
-        background-color: #9d03da41 !important;
-    }
-    .ThreeBlindMice {
-        background-color: #3d0155 !important;
-        border-color: #63028a71 !important;
-    }
-    
-    // .card-body {
-    //     background-color: #20003538 !important;
-    // }
-    
-    .list-group-item {
-       background-color:rgba(48, 0, 87, 0.185) !important; 
-       color: #f6f2f8 !important;
-    }
-    div.card-title.h5{
-            background-color: #9d03da00 !important;
-        
-    }
-    .text-center.mb-3.card.bg-dark.text-light.border-secondary {
-        border-color: rgba(126, 2, 174, 0.26) !important;
-    }   
-    .border-secondary {
-        border-color: $primary !important;
-    }
-    Button {
-        background-color: #71148d !important;
-    }
-    span.navbar-toggler-icon {
-        background-color: #4e118800 !important;
-        color: $dark !important;
-    }
-    #rumpleboop {
-        background-color: #00ffe500 !important;
-
-    }
-    #rumpledoop {
-        background-color: #00ffe500 !important;
-
-    }
-    .text-center.my-auto.copyright {
-        background-color: #00ffe500 !important;
-    }
-    span {
-        background-color: #00ffe500 !important;
-    }
-
+  .list-group-item {
+    background-color: rgba(48, 0, 87, 0.185) !important;
+    color: #f6f2f8 !important;
+  }
+  div.card-title.h5 {
+    background-color: #9d03da00 !important;
+  }
+  .text-center.mb-3.card.bg-dark.text-light.border-secondary {
+    border-color: rgba(126, 2, 174, 0.26) !important;
+  }
+  .border-secondary {
+    border-color: $primary !important;
+  }
+  Button {
+    background-color: #71148d !important;
+  }
+  span.navbar-toggler-icon {
+    background-color: #4e118800 !important;
+    color: $dark !important;
+  }
+  #rumpleboop {
+    background-color: #00ffe500 !important;
+  }
+  #rumpledoop {
+    background-color: #00ffe500 !important;
+  }
+  .text-center.my-auto.copyright {
+    background-color: #00ffe500 !important;
+  }
+  span {
+    background-color: #00ffe500 !important;
+  }
 }
 
 .dark {
-    background-color: $dark;
-    color: $light;
+  background-color: $dark;
+  color: $light;
 }
 
-
 // import bootstrap styles so we can override them
-@import 'node_modules/bootstrap/scss/bootstrap.scss'
-
+@import 'node_modules/bootstrap/scss/bootstrap.scss';

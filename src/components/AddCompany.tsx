@@ -1,26 +1,23 @@
-import {
-  faPen,
-  faPencilAlt,
-  faSchool,
-  faSchoolCircleCheck,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { Form, Button, Card, Alert, Container } from "react-bootstrap";
-import CompanyDataService from "../services/company";
-import LoadingSpinner from "./LoadingSpinner";
+import {faPen, faPencilAlt, faSchool, faSchoolCircleCheck} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, {useState} from 'react';
+import {Form, Button, Card, Alert, Container} from 'react-bootstrap';
+import CompanyDataService from '../services/company';
+import LoadingSpinner from './LoadingSpinner';
 
-const AddCompany = (props: any) => {
-  const [company_name, setCompanyName] = useState("");
-  const [company_slogan, setCompanySlogan] = useState("");
-  const logcheck = localStorage.getItem("user");
-  const token = localStorage.getItem("token");
+// Here we define the AddCompany component that will let us register a new company
+
+const AddCompany = () => {
+  const [company_name, setCompanyName] = useState('');
+  const [company_slogan, setCompanySlogan] = useState('');
+  const logcheck = localStorage.getItem('user'); // Check if theres a user
+  const token = localStorage.getItem('token'); // grab the token if there is one
   const [isLoading, setIsLoading] = React.useState(false);
-  const onChangeCompanyName = (e: { target: { value: any } }) => {
+  const onChangeCompanyName = (e: {target: {value: any}}) => {
     const company_name = e.target.value;
     setCompanyName(company_name);
   };
-  const onChangeCompanySlogan = (e: { target: { value: any } }) => {
+  const onChangeCompanySlogan = (e: {target: {value: any}}) => {
     const company_slogan = e.target.value;
     setCompanySlogan(company_slogan);
   };
@@ -39,7 +36,7 @@ const AddCompany = (props: any) => {
         setIsLoading(true);
         var data = JSON.stringify({
           data: {
-            type: "Company",
+            type: 'Company',
             attributes: {
               company_name: company_name,
               company_slogan: company_slogan,
@@ -47,12 +44,12 @@ const AddCompany = (props: any) => {
           },
         });
 
-        CompanyDataService.createCompany(data, token)
+        CompanyDataService.createCompany(data, token) // This gets called upon a successfully validated form post
 
           .then((response) => {
             console.log(response);
             setIsLoading(false);
-            alert("Success! Company created.");
+            alert('Success! Company created.');
             return;
           })
           .catch((e) => {
@@ -60,7 +57,7 @@ const AddCompany = (props: any) => {
             console.log(data, token);
             console.log(e);
             setIsLoading(false);
-            alert("Sorry, something went wrong");
+            alert('Sorry, something went wrong');
             return;
           });
       }
@@ -70,22 +67,22 @@ const AddCompany = (props: any) => {
   return (
     <div>
       {isLoading ? (
-        <LoadingSpinner />
+        <LoadingSpinner />  // Loading spinner renders if theres a fetch going on
       ) : (
         <div>
           <Card bg="dark" border="secondary" text="light" body className="mb-3 text-center">
-            <Form  onSubmit={addcompany}>
-              <h1 className='text-center'>
+            <Form onSubmit={addcompany}>
+              <h1 className="text-center">
                 <FontAwesomeIcon icon={faPencilAlt} /> Add a Company
               </h1>
               <br></br>
-              {logcheck === "" || logcheck === null ? (
+              {logcheck === '' || logcheck === null ? (
                 <>
                   <aside>
-                    This is just for show, please <a href="/login">login</a> or{" "}
-                    <a href="/register">sign up</a> to use this feature.
+                    This is just for show, please <a href="/login">login</a> or <a href="/register">sign up</a> to use
+                    this feature.
                   </aside>
-                  <br/>
+                  <br />
                 </>
               ) : (
                 <></>
@@ -102,12 +99,10 @@ const AddCompany = (props: any) => {
                   onChange={onChangeCompanyName}
                   pattern=".{3,55}"
                   title="Three or more characters"
-                  style={{textAlign: "center"}}
+                  style={{textAlign: 'center'}}
                   required
                 />
-                <Form.Text className="text-muted">
-                  Please enter company name.
-                </Form.Text>
+                <Form.Text className="text-muted">Please enter company name.</Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicCompanySlogan">
@@ -123,16 +118,15 @@ const AddCompany = (props: any) => {
                   required
                   pattern=".{5,255}"
                   title="Five or more characters"
-                  style={{textAlign: "center"}}
+                  style={{textAlign: 'center'}}
                 />
-                <Form.Text className="text-muted">
-                  Please enter your company's slogan
-                </Form.Text>
+                <Form.Text className="text-muted">Please enter your company's slogan</Form.Text>
               </Form.Group>
               <Container className="align-center text-center">
-              <Button variant="primary" type="submit" style={{minWidth: "22em"}}>
-                <FontAwesomeIcon icon={faPen} /> Submit
-              </Button></Container>
+                <Button variant="primary" type="submit" style={{minWidth: '22em'}}>
+                  <FontAwesomeIcon icon={faPen} /> Submit
+                </Button>
+              </Container>
             </Form>
           </Card>
         </div>

@@ -2,23 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#27bfd0">
-    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#27bfd0" />
+    <!-- The following link refers to the webmanifest needed to garner PWA functionality -->
+    <link rel="manifest" href="./manifest.webmanifest" />
     <title>Starter Upp</title>
   </head>
   <body>
     <div id="root"></div>
-    <!-- <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register(new URL('/service-worker.js'))
-          console.log('🎉 Service Worker Ready');
-        });
-      }
-      </script> -->
-     
+    <!-- The following script is where we link our whole react application into existence -->
     <script src="./index.tsx" type="module"></script>
+    <!-- The following script is where we link our service worker in to garner PWA functionality -->
     <script src="./registerServiceWorker.ts" type="module"></script>
   </body>
 </html>
