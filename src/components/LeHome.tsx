@@ -1,3 +1,5 @@
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Image } from "react-bootstrap";
 
@@ -5,7 +7,7 @@ function LeHome() {
   return (
     <>
     <div>
-      <h1 className="text-center">Home</h1>
+      <h1 className="text-center"><FontAwesomeIcon icon={faHome} /> Home</h1>
       <h2 className="text-center">Welcome to Starter Upp - Capitalisation System</h2>
       <p className="text-center">
         Here you can <a href="/register">create an account</a>,{" "}

@@ -120,8 +120,8 @@ const AddCompany = () => {
                   value={company_slogan}
                   onChange={onChangeCompanySlogan}
                   required
-                  pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,255}$"
-                  title="Five or more alphanumeric characters and less than 255"
+                  pattern=".{5,255}"
+                  title="Five or more alphanumeric and/or special characters and less than 255"
                   style={{textAlign: 'center'}}
                 />
                 <Form.Text className="text-muted">Please enter your company's slogan</Form.Text>

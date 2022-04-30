@@ -71,6 +71,16 @@ span {
   background-color: $alternativebg !important;
   color: $alternativetext !important;
 
+  // :not(.chartsmate.container) {
+  //   background-color: none !important;
+  //   color: $light !important;
+  // }
+
+  // :not(.VictoryContainer) {
+  //   background-color: none !important;
+  //   color: $light !important;
+  // }
+
   div {
     background-color: $alternativebg !important;
     color: $alternativetext !important;

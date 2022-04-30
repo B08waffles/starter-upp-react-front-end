@@ -25,6 +25,16 @@ class TransactionDataService {
     return axios.get(`http://127.0.0.1:8000/transactions/?associated_user_id=${user}`);
   }
 
+  getMyTransactionsMI(token: string, user: string) {
+    axios.defaults.headers.common['Authorization'] = 'Token ' + token;
+    return axios.get(`http://127.0.0.1:8000/transactions/?associated_user_id=${user}&type_of_contribution=MI`);
+  }
+
+  getMyTransactionsHW(token: string, user: string) {
+    axios.defaults.headers.common['Authorization'] = 'Token ' + token;
+    return axios.get(`http://127.0.0.1:8000/transactions/?associated_user_id=${user}&type_of_contribution=HW`);
+  }
+
   updateTransaction(id: any, data: any, token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token' + token;
     return axios.put('http://127.0.0.1:8000/transactions/${id}', data);

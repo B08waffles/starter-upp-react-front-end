@@ -18,6 +18,7 @@ import AllTransactions from './components/AllTransactions';
 import AllCompanies from './components/AllCompanies';
 import AllUsers from './components/AllUsers';
 import LoadingSpinner from './components/LoadingSpinner';
+import ChartsTest from './components/ChartsTest';
 
 // App is the centerpiece of our whole React ecosystem
 export default function App() {
@@ -122,6 +123,7 @@ export default function App() {
             <Route path="/mytransactions" element={<MyTransactions token={token} />} />
             <Route path="/allcompanies" element={<AllCompanies token={token} />} />
             <Route path="/mycompanies" element={<MyCompanies />} />
+            <Route path="/charts" element={<ChartsTest /> } />
           </Routes>
         )}
       </Container>

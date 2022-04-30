@@ -3,7 +3,7 @@
         "typeRoots": ["@types", "node_modules/@types"],
         "outDir": "./dist",
         "sourceMap": true,
-        "noImplicitAny": true, 
+        "noImplicitAny": false, 
         "module": "es2022",
         "moduleResolution": "Node",
         "target": "es6",

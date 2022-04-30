@@ -48,7 +48,7 @@ function LoginForm(props: {
               onChange={onChangeUsername}
               required
               onSubmit={login}
-              pattern=".{4,55}" title="Four or more characters"
+              pattern="[A-Za-z0-9\-_\.]{4,20}" title="Four or more characters"
             />
             <Form.Text className="text-muted">
               Please enter your username.

@@ -2,6 +2,7 @@ import { faEnvelope, faEyeSlash, faPaperPlane, faUserAlt, faUserCircle, faUserEd
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import UserDataService from "../services/users";
 
 const RegistrationForm = (props: {
@@ -46,8 +47,8 @@ const RegistrationForm = (props: {
     const password = e.target.value;
     setPassword(password);
   };
-
-  const signup = () => {
+  let navigate = useNavigate();
+  function signup () {
     props.signup({
       username: username,
       password: password,
@@ -55,25 +56,10 @@ const RegistrationForm = (props: {
       first_name: firstname,
       last_name: lastname,
     });
-    //navigate('/home');
+    navigate('/home');
+    return
   };
-  // const addUser = () => {
-  //   var data = JSON.stringify({
-  //         username: username,
-  //         email: email,
-  //         first_name: firstname,
-  //         last_name: lastname,
-  //         password: password
-  //       });
-  //   UserDataService.createUser(data)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((e) => {
-  //       console.log(data);
-  //       console.log(e);
-  //     });
-  // };
+
   return (
     <div>
       <Card className="mb-3 text-center" bg="dark" border="secondary" text="light" body>
@@ -90,7 +76,7 @@ const RegistrationForm = (props: {
               value={username}
               style={{textAlign: "center"}}
               onChange={onChangeUsername}
-              pattern=".{4,}"
+              pattern="[A-Za-z0-9\-_\.]{4,20}"
               title="Four or more characters"
               required
             />

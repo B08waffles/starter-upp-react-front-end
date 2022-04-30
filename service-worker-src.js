@@ -7,7 +7,7 @@ if ('function' === typeof importScripts) {
             console.log('Localhost detected. Running Workbox in debug mode!');
             workbox.setConfig({ debug: true });
         }
-
+// precache our items so the application will work offline out of the box
 workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 workbox.skipWaiting();
 workbox.clientsClaim();
