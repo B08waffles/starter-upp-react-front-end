@@ -2,6 +2,8 @@ import React from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { faEyeSlash, faPaperPlane, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LoginForm(props: {
   login: (arg0: { username: string; password: string }) => void;
@@ -32,10 +34,12 @@ function LoginForm(props: {
       
       <Card className="mb-3 text-center" bg="dark" border="secondary" text="light" body>
         <Form  onSubmit={login}>
-          <h1 className="text-center">Login</h1>
+          <h1 className="text-center">
+          <FontAwesomeIcon icon={faUserAlt} /> Login</h1>
           <br></br>
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
+            <Form.Label>
+            <FontAwesomeIcon icon={faUserAlt} /> Username</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter username"
@@ -52,7 +56,8 @@ function LoginForm(props: {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>
+            <FontAwesomeIcon icon={faEyeSlash} /> Password</Form.Label>
 
             <Form.Control
               type="password"
@@ -72,8 +77,8 @@ function LoginForm(props: {
           </Form.Group> */}
           <br/>
           <Container className="align-center text-center">
-          <Button variant="primary" type="submit" style={{minWidth: "22em"}}>
-            Submit
+          <Button variant="primary" type="submit" style={{minWidth: "15em"}}>
+          <FontAwesomeIcon icon={faPaperPlane} /> Submit
           </Button></Container>
         </Form>
       </Card>

@@ -1,3 +1,5 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Container, Image } from "react-bootstrap";
 
@@ -31,7 +33,7 @@ function LeSettings() {
       <Container className="align-center text-center">
       <h1>Settings</h1>
       <br/>
-      <Button onClick={() => setLightMode(!lightMode)}>Toggle Theme</Button>
+      <Button onClick={() => setLightMode(!lightMode)}><FontAwesomeIcon icon={faStar} /> Toggle Theme</Button>
       <br/></Container>
       <br/>
       <br/>
@@ -47,6 +49,9 @@ function LeSettings() {
       <br/>
     
      
+      <br/>
+      <br/>
+      <br/>
       <br/>
       
       

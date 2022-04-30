@@ -33,6 +33,10 @@ const AddCompany = () => {
       } else if (company_slogan.length < 5) {
         return;
       } else {
+        if (logcheck === "" || logcheck === null) {
+          alert("You must be signed in to use this form")
+          return;
+        } else {
         setIsLoading(true);
         var data = JSON.stringify({
           data: {
@@ -61,7 +65,7 @@ const AddCompany = () => {
             return;
           });
       }
-    }
+    }}
   };
 
   return (
@@ -97,8 +101,8 @@ const AddCompany = () => {
                   placeholder="Enter company name"
                   value={company_name}
                   onChange={onChangeCompanyName}
-                  pattern=".{3,55}"
-                  title="Three or more characters"
+                  pattern="^[a-zA-Z][a-zA-Z0-9-_.]{3,55}$"
+                  title="3 or more alphanumeric characters and less than 55"
                   style={{textAlign: 'center'}}
                   required
                 />
@@ -116,14 +120,14 @@ const AddCompany = () => {
                   value={company_slogan}
                   onChange={onChangeCompanySlogan}
                   required
-                  pattern=".{5,255}"
-                  title="Five or more characters"
+                  pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,255}$"
+                  title="Five or more alphanumeric characters and less than 255"
                   style={{textAlign: 'center'}}
                 />
                 <Form.Text className="text-muted">Please enter your company's slogan</Form.Text>
               </Form.Group>
               <Container className="align-center text-center">
-                <Button variant="primary" type="submit" style={{minWidth: '22em'}}>
+                <Button variant="primary" type="submit" style={{minWidth: "15em"}}>
                   <FontAwesomeIcon icon={faPen} /> Submit
                 </Button>
               </Container>

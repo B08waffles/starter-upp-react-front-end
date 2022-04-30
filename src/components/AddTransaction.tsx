@@ -199,7 +199,7 @@ const AddTransaction = (props: any) => {
                 </Form.Text>
               </Form.Group>
               <Container className="align-center text-center">
-              <Button variant="primary" type="submit" style={{minWidth: "22em"}}>
+              <Button variant="primary" type="submit" style={{minWidth: "15em"}}>
                 <FontAwesomeIcon icon={faCalendarCheck} /> Submit
               </Button></Container>
             </Form>

@@ -1,19 +1,15 @@
-const CACHE_NAME = 'network-app-cache';
-const urlsToCache = [
-  '/dist',
-  '/',
-  '*',
+// All of this file is completely useless and not ever used fyi, the real service worker is called
+// service-worker-src
 
-];
+const CACHE_NAME = 'network-app-cache';
+const urlsToCache = ['/dist', '/', '*'];
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache);
-      }),
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(urlsToCache);
+    })
   );
 });
-
 
 self.addEventListener('fetch', (event) => {
   if (event.request && event.request.url && event.request.url.includes('chrome-extension')) {
@@ -26,8 +22,7 @@ self.addEventListener('fetch', (event) => {
         return cachedResponse;
       }
       const networkResponse = await fetch(event.request);
-      event.waitUntil(
-        cache.put(event.request, networkResponse.clone()));
+      event.waitUntil(cache.put(event.request, networkResponse.clone()));
       return networkResponse;
     })
   );
@@ -36,18 +31,20 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('fetch', (event) => {
   // Check if this is a request for an image
   if (event.request.destination === 'image') {
-    event.respondWith(caches.open(CACHE_NAME).then(async (cache) => {
-      // Go to the cache first
-      const cachedResponse = await cache.match(event.request.url);
-      // Return a cached response if we have one
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      const fetchedResponse = await fetch(event.request);
-      // Add the network response to the cache for later visits
-      cache.put(event.request, fetchedResponse.clone());
-      return fetchedResponse;
-    }));
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        // Go to the cache first
+        const cachedResponse = await cache.match(event.request.url);
+        // Return a cached response if we have one
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        const fetchedResponse = await fetch(event.request);
+        // Add the network response to the cache for later visits
+        cache.put(event.request, fetchedResponse.clone());
+        return fetchedResponse;
+      })
+    );
   } else {
     return;
   }
@@ -56,18 +53,20 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('fetch', (event) => {
   // Check if this is a request for an image
   if (event.request.destination === '.ico') {
-    event.respondWith(caches.open(CACHE_NAME).then(async (cache) => {
-      // Go to the cache first
-      const cachedResponse = await cache.match(event.request.url);
-      // Return a cached response if we have one
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      const fetchedResponse = await fetch(event.request);
-      // Add the network response to the cache for later visits
-      cache.put(event.request, fetchedResponse.clone());
-      return fetchedResponse;
-    }));
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        // Go to the cache first
+        const cachedResponse = await cache.match(event.request.url);
+        // Return a cached response if we have one
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        const fetchedResponse = await fetch(event.request);
+        // Add the network response to the cache for later visits
+        cache.put(event.request, fetchedResponse.clone());
+        return fetchedResponse;
+      })
+    );
   } else {
     return;
   }
@@ -76,18 +75,20 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('fetch', (event) => {
   // Check if this is a request for an image
   if (event.request.destination === '.png') {
-    event.respondWith(caches.open(CACHE_NAME).then(async (cache) => {
-      // Go to the cache first
-      const cachedResponse = await cache.match(event.request.url);
-      // Return a cached response if we have one
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      const fetchedResponse = await fetch(event.request);
-      // Add the network response to the cache for later visits
-      cache.put(event.request, fetchedResponse.clone());
-      return fetchedResponse;
-    }));
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        // Go to the cache first
+        const cachedResponse = await cache.match(event.request.url);
+        // Return a cached response if we have one
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        const fetchedResponse = await fetch(event.request);
+        // Add the network response to the cache for later visits
+        cache.put(event.request, fetchedResponse.clone());
+        return fetchedResponse;
+      })
+    );
   } else {
     return;
   }
@@ -96,18 +97,20 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('fetch', (event) => {
   // Check if this is a request for an image
   if (event.request.mode === 'navigate') {
-    event.respondWith(caches.open(CACHE_NAME).then(async (cache) => {
-      // Go to the cache first
-      const cachedResponse = await cache.match(event.request.url);
-      // Return a cached response if we have one
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      const fetchedResponse = await fetch(event.request);
-      // Add the network response to the cache for later visits
-      cache.put(event.request, fetchedResponse.clone());
-      return fetchedResponse;
-    }));
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        // Go to the cache first
+        const cachedResponse = await cache.match(event.request.url);
+        // Return a cached response if we have one
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        const fetchedResponse = await fetch(event.request);
+        // Add the network response to the cache for later visits
+        cache.put(event.request, fetchedResponse.clone());
+        return fetchedResponse;
+      })
+    );
   } else {
     return;
   }
@@ -150,7 +153,6 @@ self.addEventListener('fetch', (event) => {
 //     return;
 //   }
 // });
-
 
 // importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js');
 // workbox.precaching.precacheAndRoute([]);

@@ -1,3 +1,5 @@
+import { faEnvelope, faEyeSlash, faPaperPlane, faUserAlt, faUserCircle, faUserEdit } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import UserDataService from "../services/users";
@@ -76,11 +78,12 @@ const RegistrationForm = (props: {
     <div>
       <Card className="mb-3 text-center" bg="dark" border="secondary" text="light" body>
         <Form  onSubmit={signup}>
-          <h1 className="text-center">Registration</h1>
+          <h1 className="text-center">
+          <FontAwesomeIcon icon={faUserEdit} /> Registration</h1>
           <br></br>
 
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
+            <Form.Label><FontAwesomeIcon icon={faUserAlt} /> Username</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter username"
@@ -97,7 +100,7 @@ const RegistrationForm = (props: {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label><FontAwesomeIcon icon={faEnvelope} /> Email address</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
@@ -114,7 +117,7 @@ const RegistrationForm = (props: {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicFirstName">
-            <Form.Label>First Name - optional</Form.Label>
+            <Form.Label> <FontAwesomeIcon icon={faUserCircle} /> First Name - optional</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter first name (optional)"
@@ -127,7 +130,7 @@ const RegistrationForm = (props: {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLastName">
-            <Form.Label>Last Name - optional</Form.Label>
+            <Form.Label> <FontAwesomeIcon icon={faUserCircle} /> Last Name - optional</Form.Label>
             <Form.Control
               type="textt"
               placeholder="Enter last name (optional)"
@@ -150,7 +153,7 @@ const RegistrationForm = (props: {
         </Form.Group> */}
 
           <Form.Group className="mb-3 text-center" controlId="formBasicConfirmPassword">
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label> <FontAwesomeIcon icon={faEyeSlash} /> Confirm Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm password"
@@ -161,14 +164,14 @@ const RegistrationForm = (props: {
               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
             />
             <Form.Text className="text-muted">
-              Must be the same password
+              Must be a strong password
             </Form.Text>
           </Form.Group>
           <br />
           <Container className="align-center text-center">
           <Button variant="primary" type="submit" className="text-center"
-          style={{minWidth: "22em"}}>
-            Submit
+          style={{minWidth: "15em"}}>
+           <FontAwesomeIcon icon={faPaperPlane} /> Submit
           </Button></Container>
         </Form>
       </Card>
