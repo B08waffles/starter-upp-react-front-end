@@ -16,9 +16,11 @@
     - For the full experience, you'll need to download [starter-upp-django-back-end repository](https://github.com/B08waffles/starter-upp-django-back-end). Follow the steps outlined in _**README.md**_ to run the back-end. 
 * To build this application to fully test this, you need to:
     - run `npm run clean` to clear out the _"/dist"_ folder if neccesary
-    - Open _**workbox-config.ts**_, you need to comment out `swSrc: 'service-worker-src.js',` we will need this later
+    - Open _**workbox-config.ts**_, you need to comment out `swSrc: 'service-worker-src.js',` we will need this later, code shown below is what it should look like before proceeding
+ ![image1](public/readmeimages/code2.png)
     - Now run `npm run build`
     - After that, go back to _**workbox-config.ts**_ and uncomment out `swSrc: 'service-worker-src.js',`
+    ![image2](public/readmeimages/code1.png)
     - Now we're ready to run `npm run workbox2` which will override the default service-worker and inject the build with our own
     - Finally, run `npm run serve` to start the application in production mode
 * In either development or production mode, you'll need to direct yourself to _"/signup"_ and create a new account, provided that you're running the back-end simultanously
