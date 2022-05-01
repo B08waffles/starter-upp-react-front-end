@@ -3,9 +3,9 @@
 
 > This is the front-end designed for use with the [starter-upp-django-back-end repository](https://github.com/B08waffles/starter-upp-django-back-end)
 
-~~~~~~
-About the application: Starter-Upp is a capitalisation system. Instead of manually using spreadsheets to keep track of things like company ownership and individual contributions, this app intends to automate some of the work here by allowing users to create companies, transactions and for this data to be presented to the end-user in the form of both cards and graphs/charts. 
-~~~~~~
+
+> About Starter-Upp: Starter-Upp is a capitalisation system. Instead of manually using spreadsheets to keep track of things like company ownership and individual contributions, this app intends to automate some of the work here by allowing users to create companies, transactions and for this data to be presented to the end-user in the form of both cards and graphs/charts. 
+
 
 ## Instructions for setup
 * Download the files and extract in a new folder
