@@ -19,6 +19,7 @@ import AllCompanies from './components/AllCompanies';
 import AllUsers from './components/AllUsers';
 import LoadingSpinner from './components/LoadingSpinner';
 import ChartsTest from './components/ChartsTest';
+import EndTimes from './components/EndTimes';
 
 // App is the centerpiece of our whole React ecosystem
 export default function App() {
@@ -119,11 +120,13 @@ export default function App() {
             <Route path="/alltransactions" element={<AllTransactions token={token} />} />
             <Route path="/register" element={<RegistrationForm signup={signup} />} />
             <Route path="/addcompany" element={<AddCompany />} />
+            <Route path="/companyownership" element={<EndTimes /> } />
             <Route path="/addtransaction" element={<AddTransaction />} />
             <Route path="/mytransactions" element={<MyTransactions token={token} />} />
             <Route path="/allcompanies" element={<AllCompanies token={token} />} />
             <Route path="/mycompanies" element={<MyCompanies />} />
             <Route path="/charts" element={<ChartsTest /> } />
+            
           </Routes>
         )}
       </Container>

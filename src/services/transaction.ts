@@ -10,6 +10,11 @@ class TransactionDataService {
     return axios.get('http://127.0.0.1:8000/transactions/');
   }
 
+  getAllForCompany(token: string, associated_company_id: string) {
+    axios.defaults.headers.common['Authorization'] = 'Token ' + token;
+    return axios.get(`http://localhost:8000/transactions/?associated_company_id=${associated_company_id}`);
+  }
+
   createTransaction(data: any, token: string) {
     return axios.post('http://127.0.0.1:8000/transactions/', data, {
       headers: {

@@ -118,7 +118,8 @@ export default function ChartsTest() {
                   y="amount"
                   animate={{
                     duration: 2000,
-                    onLoad: {duration: 1000},
+                    onLoad: {duration: 1000}
+                    
                   }}
                   style={{
                     data: {

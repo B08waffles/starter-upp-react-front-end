@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   faAdd,
   faChartBar,
+  faChartPie,
   faCreditCard,
   faHome,
   faList,
@@ -75,6 +76,11 @@ function LeNavBar() {
                       <FontAwesomeIcon icon={faChartBar} /> Charts - My Transactions
                     </Nav.Link>
                   </LinkContainer>
+                  <LinkContainer to="/companyownership">
+                    <Nav.Link as={Link} to="/companyownership" active={false}>
+                      <FontAwesomeIcon icon={faChartPie} /> Charts - Company Ownership
+                    </Nav.Link>
+                  </LinkContainer>
                   {/* <LinkContainer to="/mycompanies">
                 <Nav.Link as={Link} to="/mycompanies" active={false}>
                   My Companies
@@ -90,6 +96,7 @@ function LeNavBar() {
                       <FontAwesomeIcon icon={faList12} /> All Transactions
                     </Nav.Link>
                   </LinkContainer>
+                  
                   <LinkContainer to="/allcompanies">
                     <Nav.Link as={Link} to="/allcompanies" active={false}>
                       <FontAwesomeIcon icon={faListAlt} /> All Companies

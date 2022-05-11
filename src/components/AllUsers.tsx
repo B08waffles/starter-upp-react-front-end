@@ -35,7 +35,7 @@ const AllUsers = (props: { token: any }) => {
   return (
     <><h1 className='text-center'><FontAwesomeIcon icon={faList} /> All Users</h1><br/>
       
-      {logcheck == null || logcheck === "" ? (
+      {logcheck === null || logcheck === "" ? (
        <> <Alert variant="warning">
           You are not logged in. Please <Link to={"/login"}>login</Link> to see
           this page.
