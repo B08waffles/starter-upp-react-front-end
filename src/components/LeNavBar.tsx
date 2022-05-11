@@ -42,7 +42,7 @@ function LeNavBar() {
         <Container>
           <Image src={require('../../public/images/logo.png')} style={{maxWidth: '80px'}} />
           <Navbar.Brand as={Link} to="/">
-            ***STARTER UPP***
+            <b>***STARTER UPP***</b>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
