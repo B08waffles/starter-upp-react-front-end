@@ -6,6 +6,8 @@
     "display": "standalone",
     "scope": "*",
     "start_url": "*",
+    "id": "/*",
+    "description": "Starter-Upp is a capitalisation system that intends on presenting employees and employers with their data with cards and charts",
     "icons": [{
             "src": "../public/images/starterupplogo192.png",
             "sizes": "192x192",
