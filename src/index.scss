@@ -16,7 +16,18 @@ $alternativetext: #dcc2f5;
 
 body {
   background-color: $dark !important;
+  height: 100%;
+  width: 100%;
+  font-family: Georgia !important;
+  // font-size:x-large !important;
+  // font-style:oblique !important;
 }
+
+// Tried adjusting the PieChart size to no avail
+// .VictoryContainer svg, g {
+//   min-height: 20em !important;
+//   min-width: 20em !important;
+// }
 
 .card-header {
   background-color: #03dac541 !important;
@@ -24,6 +35,16 @@ body {
 .ThreeBlindMice {
   background-color: #0b6e66 !important;
   border-color: #028a7c71 !important;
+}
+
+.app, .root, .container {
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-menu.show, a.dropdown-item {
+background-color: $dark !important;
+color: $secondary !important;
 }
 
 Button {
@@ -177,6 +198,10 @@ span {
   span {
     background-color: #00ffe500 !important;
   }
+  .dropdown-menu.show, a.dropdown-item {
+    background-color: $alternativebg !important;
+    color: $alternativetext !important;
+    }
 }
 
 .dark {
