@@ -6,4 +6,7 @@ function MyCompanies() {
   )
 }
 
+let app = "poo"
+
+
 export default MyCompanies

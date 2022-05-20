@@ -22,7 +22,7 @@ function LeHome() {
       <Row>
         {/* <Col className="text-center"> <Image src={require('../../public/images/kanestudioslogo.png')} style={{minWidth: '250px'}}  /> 
         </Col> */}
-        <Col className="text-center"><Image src={require('../../public/images/logo.png')} style={{maxWidth: '450px'}} /></Col>
+        <Col className="text-center"><Image src={require('../../public/images/logo.png')} style={{maxWidth: '350px'}} /></Col>
       </Row>
         {/* <Container className="align-center text-center">
          {' '}

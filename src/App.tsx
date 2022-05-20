@@ -22,6 +22,7 @@ import ChartsTest from './components/ChartsTest';
 import EndTimes from './components/EndTimes';
 import Helper from './components/Helper';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import License from './components/License';
 
 // App is the centerpiece of our whole React ecosystem
 export default function App() {
@@ -130,6 +131,7 @@ export default function App() {
             <Route path="/charts" element={<ChartsTest /> } />
             <Route path="/help" element={<Helper/>} />
             <Route path="legislation" element={<PrivacyPolicy /> } /> 
+            <Route path="/license" element={<License /> } />
           </Routes>
         )}
       </Container>

@@ -6,7 +6,9 @@ import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 export default function Helper() {
   return (
-    <><aside><a href="/legislation">Privacy Policy</a></aside>
+    <><aside><a href="/legislation">Privacy Policy</a> 
+    <br/><a href="/license"> Licensing</a></aside>
+    
       <h1 className="text-center">
         <FontAwesomeIcon icon={faHandHolding} /> Helpful Information
       </h1>
