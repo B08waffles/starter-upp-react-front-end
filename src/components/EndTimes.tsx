@@ -1,12 +1,12 @@
 import {on} from 'events';
 import React, {useEffect, useState} from 'react';
-import {VictoryPie, VictoryTheme} from 'victory';
+import {VictoryContainer, VictoryPie, VictoryTheme, VictoryZoomContainer} from 'victory';
 import TransactionDataService from '../services/transaction';
 import CompanyDataService from '../services/company';
 import LoadingSpinner from './LoadingSpinner';
-import {DropdownButton, Dropdown} from 'react-bootstrap';
+import {DropdownButton, Dropdown, Container, Table} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faChartPie} from '@fortawesome/free-solid-svg-icons';
+import {faChartPie, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 
 export default function EndTimes() {
   const token = localStorage.getItem('token');
@@ -111,11 +111,11 @@ export default function EndTimes() {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <>
+        <><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
           <h1 className="text-center">
             <FontAwesomeIcon icon={faChartPie} /> Chart - Company Ownership
           </h1>{' '}
-          <p className="text-center">Select a company to view ownership</p>
+          {/* <p className="text-center">Select a company to view ownership</p> */}
           <>
             {lightMode ? (
               <h2 className="text-center">
@@ -127,8 +127,9 @@ export default function EndTimes() {
                 <DropdownButton
                   title="Select a company"
                   defaultValue="Mitsubishi"
-                  onSelect={setACI}
+                  onSelect={setACI} className = "text-center"
                   style={{minWidth: '22em'}}>
+                    
                   {companies.map((company) => {
                     return (
                       <Dropdown.Item defaultValue="Mitsubishi" key={company.id} eventKey={company.company_name}>
@@ -138,7 +139,7 @@ export default function EndTimes() {
                   })}
                 </DropdownButton>
                 <>
-                  <p className="text-right">
+                  <p className="text-center">
                     Total worth of <b>{associated_company_id}</b> is <b>$ {totals}</b>
                   </p>
                 </>
@@ -153,25 +154,26 @@ export default function EndTimes() {
                     <br style={{marginBottom: '35em'}} />{' '}
                   </>
                 ) : (
+                  <Container id="pieface">
                   <VictoryPie
                     style={{
                       data: {
                         fillOpacity: 0.9,
-                        stroke: '#03dac5',
+                        stroke: '#f8f8f8',
                         strokeWidth: 2,
                       },
                       labels: {
-                        fontSize: 10.5,
-                        fill: '#03dac5',
+                        fontSize: 15,
+                        fill: '#f8f8f8',
                       },
                     }}
                     data={sumResult}
                     x="user"
                     y="amount"
                     theme={VictoryTheme.material}
-                    colorScale="blue"
-                    height={250}
-                    width={450}
+                    colorScale="cool"
+                    // height={250}
+                    // width={450}
                     animate={{
                       duration: 2000,
                       easing: 'exp',
@@ -202,8 +204,33 @@ export default function EndTimes() {
                         },
                       },
                     ]}
-                  />
+                  /></Container>
                 )}
+<Table striped bordered hover size="sm">
+  <thead>
+    <tr>
+      
+      <th>Stakeholder</th>
+      <th>Worth</th>
+    </tr>
+  </thead>
+    {sumResult.map((stakeholders) => {
+      return (
+    <>
+  
+  <tbody> 
+    <tr>
+      
+      <td>{stakeholders.user}</td>
+      <td>$ {stakeholders.amount}</td>
+          </tr>
+  </tbody>
+    </>)
+    })}</Table>
+   
+      
+
+                
                 <br style={{marginBottom: '16em'}} />
               </>
             )}

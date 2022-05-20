@@ -1,17 +1,17 @@
 // overwrite bootstrap theme variables to give us our own flavour of theme
 
-$primary: #bb86fc;
-$secondary: #03dac6;
-$dark: #121212;
+$primary: #bd93f9;
+$secondary: #05c2c4;
+$dark: #282a36;
 $light: #f8f8f2;
-$success: #7100b3;
-$info: #1900ff;
-$warning: #e00000;
-$danger: #ff002f;
+$success: #50fa7b;
+$info: #a38d65;
+$warning: #ff79c6;
+$danger: #c23838;
 
 $alternativebg: #1c1629;
 $alternativetext: #dcc2f5;
-
+$raisedbg: #44475a;
 // Specify some more specific theme choices for certain classes and elements
 
 body {
@@ -19,7 +19,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: Georgia !important;
-  // font-size:x-large !important;
+  // font-size:xx-large !important;
   // font-style:oblique !important;
 }
 
@@ -28,18 +28,123 @@ body {
 //   min-height: 20em !important;
 //   min-width: 20em !important;
 // }
+aside {
+  float: right;
+}
+
+.card {
+  border-color: $primary !important;
+}
 
 .card-header {
-  background-color: #03dac541 !important;
+  background-color: $dark !important;
 }
 .ThreeBlindMice {
-  background-color: #0b6e66 !important;
-  border-color: #028a7c71 !important;
+  background-color: $dark !important;
+  border-color: $primary !important;
 }
 
 .app, .root, .container {
   height: 100%;
   width: 100%;
+}
+
+svg.svg-inline--fa {
+  color: $secondary !important;
+}
+
+.nav-link {
+  font-size: x-large !important;
+  color: $light !important;
+  text-align: left !important;
+  margin-left: 22em;
+}
+
+small {
+  font-size: large !important;
+}
+
+.rice {
+  font-size: larger !important;
+}
+
+#beans {
+  color: $primary !important;
+  text-decoration: underline !important;
+
+}
+
+
+
+.show, .collapsing, .accordion, .accordion-item, .accordion-header {
+  border-color: $primary !important;
+  background-color: $dark !important;
+  color: $light !important;
+}
+
+button.me-2.btn.btn-outline-info, button.btn.btn-outline-danger {
+  border-width: 0.3em !important;
+  
+}
+
+// button.me-2.btn.btn-outline-info {
+  
+// }
+
+// button.btn.btn-outline-danger {
+
+// }
+
+div.mb-3 {
+  border-color: $primary !important;
+}
+
+h1 {
+  font-size: xx-large !important;
+  color: $secondary !important;
+}
+
+h2 {
+  font-size: x-large !important;
+  color: $light !important;
+}
+
+p {
+  font-size: x-large !important;
+}
+
+.navbar-brand {
+  color: $secondary !important;
+  font-size: xx-large !important;
+}
+
+// .VictoryContainer > svg:nth-child(1), .VictoryContainer, .VictoryContainer > svg:nth-child(1) > g:nth-child(1) > path:nth-child(1) {
+//   height: 600px !important;
+// }
+
+// g {
+
+//   width: 250px !important;
+//   height: 650px !important; 
+
+// }
+
+a {
+  color: $secondary !important;
+  
+}
+
+a:hover {
+  text-decoration: underline !important;
+  animation: alternate !important;
+}
+
+.iAmTheNavBar {
+  border-bottom: 0.25em !important;
+  border-width: 0.25em !important;
+  border-color: $dark !important;
+  border-bottom-color: $raisedbg !important;
+  border-style:solid !important;
 }
 
 .dropdown-menu.show, a.dropdown-item {
@@ -48,21 +153,43 @@ color: $secondary !important;
 }
 
 Button {
-  background-color: #03dac5 !important;
+  background-color: $raisedbg !important;
+  color: $light !important;
 }
+
 
 span.navbar-toggler-icon {
   background-color: #03dac500 !important;
   color: $dark !important;
 }
 
+.navbar-toggler-icon {
+  background-color: $dark !important;
+}
+
+// .navbar-toggler.collapsed {
+//   background-color: $dark !important;
+// }
+
+.button.navbar-toggler {
+  color: $success !important;
+}
+
+.form-control {
+  background-color: $dark !important;
+  color: $light !important;
+  min-height: 3em !important;
+
+  
+}
+
 .card-body {
-  background-color: #00353038;
+  background-color: $raisedbg;
 }
 
 .list-group-item {
-  background-color: rgba(0, 87, 79, 0.322) !important;
-  color: #f8f8f2 !important;
+  background-color: $dark !important;
+  color: $light !important;
 }
 
 #rumpledoop {
@@ -75,14 +202,47 @@ span.navbar-toggler-icon {
   color: $light !important;
 }
 
-.form-control {
-  background-color: rgb(36, 36, 36) !important;
-  color: #f8f8f2 !important;
+table, tr, th, thead, tbody, td {
+  color: $light !important;
+  border-color: $raisedbg !important;
 }
 
 span {
   background-color: $dark !important;
   color: $light !important;
+}
+
+#pieface {
+  max-width: 40em !important;
+  max-height: 40em !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-link {
+    
+    margin-left: 6em !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navbar-brand {
+    font-size: x-large !important;
+  }
+  h1 {
+    font-size: xx-large !important;
+  }
+  h2 {
+    font-size: x-large !important;
+  }
+  p {
+    font-size: large !important;
+  }
+  div.bg-dark:nth-child(2) {
+    padding:2px !important;
+  }
+  .nav-link {
+    margin-left: 25px !important;
+    text-align: left !important;
+  }
 }
 
 // The following section depicts what our alternative theme should look like

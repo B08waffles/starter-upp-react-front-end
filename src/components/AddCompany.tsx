@@ -1,4 +1,4 @@
-import {faPen, faPencilAlt, faSchool, faSchoolCircleCheck} from '@fortawesome/free-solid-svg-icons';
+import {faPen, faPencilAlt, faQuestionCircle, faSchool, faSchoolCircleCheck} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import React, {useState} from 'react';
 import {Form, Button, Card, Alert, Container} from 'react-bootstrap';
@@ -75,9 +75,9 @@ const AddCompany = () => {
       ) : (
         <div>
           <Card bg="dark" border="secondary" text="light" body className="mb-3 text-center">
-            <Form onSubmit={addcompany}>
+            <Form onSubmit={addcompany}><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
               <h1 className="text-center">
-                <FontAwesomeIcon icon={faPencilAlt} /> Add a Company
+                <FontAwesomeIcon icon={faPencilAlt} /> Create Company
               </h1>
               <br></br>
               {logcheck === '' || logcheck === null ? (
@@ -130,6 +130,7 @@ const AddCompany = () => {
                 <Button variant="primary" type="submit" style={{minWidth: "15em"}}>
                   <FontAwesomeIcon icon={faPen} /> Submit
                 </Button>
+                
               </Container>
             </Form>
           </Card>

@@ -1,4 +1,4 @@
-import {faChartBar, faChartSimple} from '@fortawesome/free-solid-svg-icons';
+import {faChartBar, faChartSimple, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import React, {useEffect, useState} from 'react';
 import {Container} from 'react-bootstrap';
@@ -10,7 +10,7 @@ export default function ChartsTest() {
   const [transactions, setTransactions] = useState([]);
 
   const [transactions3, setTransactions3] = useState([]);
-
+  const [res, setRes] = useState([])
   const [transactions4, setTransactions4] = useState([]);
 
   const user = localStorage.getItem('user');
@@ -92,7 +92,8 @@ export default function ChartsTest() {
     res[value.associated_company].amount += value.amount;
     return res;
   }, {});
-
+ 
+  console.log(resultMI)
   return (
     <>
       {isLoading ? (
@@ -105,7 +106,7 @@ export default function ChartsTest() {
               to view this page. Our developers are working around the clock to fix this issue.
             </h2>
           ) : (
-            <Container className="chartsmate">
+            <Container className="chartsmate"><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
               <h1 className="text-center">
                 {' '}
                 <FontAwesomeIcon icon={faChartBar} /> My Transactions Chart
@@ -119,8 +120,6 @@ export default function ChartsTest() {
                   animate={{
                     duration: 2000,
                     onLoad: {duration: 1000},
-                    
-                    
                   }}
                   style={{
                     data: {
@@ -155,7 +154,6 @@ export default function ChartsTest() {
                   animate={{
                     duration: 2000,
                     onLoad: {duration: 1000},
-                    
                   }}
                   style={{
                     data: {

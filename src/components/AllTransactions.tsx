@@ -5,6 +5,7 @@ import {
   faEdit,
   faList12,
   faMoneyBills,
+  faQuestionCircle,
   faSchool,
   faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
@@ -45,7 +46,7 @@ const AllTransactions = (props: { token: string }) => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <>
+        <><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
           <h1 className="text-center">
             <FontAwesomeIcon icon={faList12} /> All Transactions
           </h1>

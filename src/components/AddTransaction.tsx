@@ -3,6 +3,8 @@ import {
   faEdit,
   faMoneyBillAlt,
   faPencil,
+  faPlusCircle,
+  faQuestionCircle,
   faSchool,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -106,9 +108,9 @@ const AddTransaction = (props: any) => {
       ) : (
         <div>
           <Card bg="dark" border="secondary" text="light" body className="mb-3 text-center" >
-            <Form  onSubmit={addtransaction}>
+            <Form  onSubmit={addtransaction}><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
               <h1 className='text-center'>
-                <FontAwesomeIcon icon={faPencil} /> Add a Transaction
+                <FontAwesomeIcon icon={faPlusCircle} /> Add a Transaction
               </h1>
               <br></br>
               {logcheck === "" || logcheck === null ? (
@@ -138,7 +140,7 @@ const AddTransaction = (props: any) => {
                     );
                   })}
                 </DropdownButton>
-                <p>You selected: {associated_company_id}</p>
+                <p className="rice">You selected: {associated_company_id}</p>
                 {/* <Form.Control
                   type="text"
                   placeholder="Enter company name"
@@ -166,7 +168,7 @@ const AddTransaction = (props: any) => {
                   <Dropdown.Item eventKey="HW">Hours Worked</Dropdown.Item>
                   <Dropdown.Item eventKey="MI">Money Invested</Dropdown.Item>
                 </DropdownButton>
-                <p>You selected: {type_of_contribution}</p>
+                <p className="rice">You selected: {type_of_contribution}</p>
                 {/* <Form.Control
                   type="text"
                   placeholder="HW = Hours works, MI = Money invested"
@@ -192,6 +194,8 @@ const AddTransaction = (props: any) => {
                   value={amount}
                   onChange={onChangeAmount}
                   required
+                  min={0}
+                  step="0.01"
                   style={{textAlign: "center"}}
                 />
                 <Form.Text className="text-muted">

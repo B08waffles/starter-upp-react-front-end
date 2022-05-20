@@ -1,4 +1,4 @@
-import { faEnvelope, faEyeSlash, faPaperPlane, faUserAlt, faUserCircle, faUserEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faEyeSlash, faPaperPlane, faQuestionCircle, faUserAlt, faUserCircle, faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
@@ -63,7 +63,7 @@ const RegistrationForm = (props: {
   return (
     <div>
       <Card className="mb-3 text-center" bg="dark" border="secondary" text="light" body>
-        <Form  onSubmit={signup}>
+        <Form  onSubmit={signup}> <aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
           <h1 className="text-center">
           <FontAwesomeIcon icon={faUserEdit} /> Registration</h1>
           <br></br>

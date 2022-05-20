@@ -20,6 +20,8 @@ import AllUsers from './components/AllUsers';
 import LoadingSpinner from './components/LoadingSpinner';
 import ChartsTest from './components/ChartsTest';
 import EndTimes from './components/EndTimes';
+import Helper from './components/Helper';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 // App is the centerpiece of our whole React ecosystem
 export default function App() {
@@ -126,7 +128,8 @@ export default function App() {
             <Route path="/allcompanies" element={<AllCompanies token={token} />} />
             <Route path="/mycompanies" element={<MyCompanies />} />
             <Route path="/charts" element={<ChartsTest /> } />
-            
+            <Route path="/help" element={<Helper/>} />
+            <Route path="legislation" element={<PrivacyPolicy /> } /> 
           </Routes>
         )}
       </Container>

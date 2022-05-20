@@ -1,4 +1,4 @@
-import {faStar} from '@fortawesome/free-solid-svg-icons';
+import {faQuestionCircle, faStar} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import React from 'react';
 import {Button, Container, Image} from 'react-bootstrap';
@@ -27,7 +27,7 @@ function LeSettings() {
   }, [lightMode]);
 
   return (
-    <div>
+    <div><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
       <Container className="align-center text-center">
         <h1>Settings</h1>
         <br />

@@ -9,6 +9,7 @@ import {
   faCalendarAlt,
   faCalendarCheck,
   faListAlt,
+  faQuestionCircle,
   faSchool,
   faSchoolCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
@@ -37,7 +38,7 @@ const CompanyList = (props: {token: string}) => {
       });
   };
   return (
-    <>
+    <><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
       <h1 className="text-center">
         <FontAwesomeIcon icon={faListAlt} /> All Companies
       </h1>

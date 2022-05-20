@@ -15,6 +15,7 @@ import {
   faListAlt,
   faPencil,
   faPencilAlt,
+  faPlusCircle,
   faSun,
   faUser,
   faUserAlt,
@@ -37,12 +38,14 @@ function LeNavBar() {
   }
 
   return (
-    <div>
+    <div className="iAmTheNavBar">
+      
       <Navbar bg="dark" expand="sl" collapseOnSelect variant="dark" className="text-center">
         <Container>
           <Image src={require('../../public/images/logo.png')} style={{maxWidth: '80px'}} />
+          
           <Navbar.Brand as={Link} to="/">
-            <b>***STARTER UPP***</b>
+            <b>STARTER UPP</b>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -57,28 +60,28 @@ function LeNavBar() {
                 <>
                   <LinkContainer to="/addtransaction">
                     <Nav.Link as={Link} to="/addtransaction" active={false}>
-                      <FontAwesomeIcon icon={faPencil} /> Add Transaction
+                      <FontAwesomeIcon icon={faPlusCircle} /> Add Transaction
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/addcompany">
                     <Nav.Link as={Link} to="/addcompany" active={false}>
-                      <FontAwesomeIcon icon={faPencilAlt} /> Add Company
+                      <FontAwesomeIcon icon={faPencilAlt} /> Create Company
                     </Nav.Link>
                   </LinkContainer>
 
                   <LinkContainer to="/mytransactions">
                     <Nav.Link as={Link} to="/mytransactions" active={false}>
-                      <FontAwesomeIcon icon={faCreditCard} /> My Transactions
+                      <FontAwesomeIcon icon={faCreditCard} /> My Contributions
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/charts">
                     <Nav.Link as={Link} to="/" className="nav-link" active={false}>
-                      <FontAwesomeIcon icon={faChartBar} /> Charts - My Transactions
+                      <FontAwesomeIcon icon={faChartBar} />  My Transactions
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/companyownership">
                     <Nav.Link as={Link} to="/companyownership" active={false}>
-                      <FontAwesomeIcon icon={faChartPie} /> Charts - Company Ownership
+                      <FontAwesomeIcon icon={faChartPie} /> Company Ownership
                     </Nav.Link>
                   </LinkContainer>
                   {/* <LinkContainer to="/mycompanies">
@@ -88,18 +91,18 @@ function LeNavBar() {
               </LinkContainer> */}
                   <LinkContainer to="/allusers">
                     <Nav.Link as={Link} to="/allusers" active={false}>
-                      <FontAwesomeIcon icon={faList} /> All Users
+                      <FontAwesomeIcon icon={faList} /> Users
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/alltransactions">
                     <Nav.Link as={Link} to="/alltransactions" active={false}>
-                      <FontAwesomeIcon icon={faList12} /> All Transactions
+                      <FontAwesomeIcon icon={faList12} /> Transactions
                     </Nav.Link>
                   </LinkContainer>
                   
                   <LinkContainer to="/allcompanies">
                     <Nav.Link as={Link} to="/allcompanies" active={false}>
-                      <FontAwesomeIcon icon={faListAlt} /> All Companies
+                      <FontAwesomeIcon icon={faListAlt} /> Companies
                     </Nav.Link>
                   </LinkContainer>
                 </>

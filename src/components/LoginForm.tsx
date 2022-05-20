@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { faEyeSlash, faPaperPlane, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash, faPaperPlane, faQuestionCircle, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LoginForm(props: {
@@ -33,7 +33,7 @@ function LoginForm(props: {
     <div>
       
       <Card className="mb-3 text-center" bg="dark" border="secondary" text="light" body>
-        <Form  onSubmit={login}>
+        <Form  onSubmit={login}> <aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
           <h1 className="text-center">
           <FontAwesomeIcon icon={faUserAlt} /> Login</h1>
           <br></br>
