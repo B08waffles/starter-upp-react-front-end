@@ -210,17 +210,7 @@ const AddTransaction = (props: any) => {
           </Card>
         </div>
       )}
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      
+ 
       
     </div>
   );

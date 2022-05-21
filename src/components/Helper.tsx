@@ -151,11 +151,13 @@ export default function Helper() {
               </Card.Body>
             </Card>
           </Col>
-        </Row> */}
-      </Container>
-<br/><br/>
-      <h1 className="text-center">Something not right?</h1>
+        </Row> */}<br/><br/><h1 className="text-center">Something not right?</h1>
       <p className="rice" style={{textAlign: "center"}}>In the case that something is not working as expected, please don't hesitate to contact the administrater at b08waffles@protonmail.com</p>
+      </Container>
+
+      
+    
     </>
+
   );
 }

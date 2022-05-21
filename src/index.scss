@@ -14,11 +14,18 @@ $alternativetext: #dcc2f5;
 $raisedbg: #44475a;
 // Specify some more specific theme choices for certain classes and elements
 
+html {
+  min-height: 100vh !important;
+}
+
 body {
   background-color: $dark !important;
-  height: 100%;
-  width: 100%;
+  height: 100vh !important;
+  // height: 100% !important;
+  min-width: 100% !important;
   font-family: Georgia !important;
+  
+  // position: relative !important;
   // font-size:xx-large !important;
   // font-style:oblique !important;
 }
@@ -43,10 +50,31 @@ aside {
   background-color: $dark !important;
   border-color: $primary !important;
 }
+.root {
+  // min-height: 100% !important;
+  // min-width: 100% !important;
+  height: 100vh !important;
+}
+.app {
+  // min-height: 100% !important;
+  // min-height: 100% !important;
+  height: 100vh !important;
+  // min-width: 100% !important;
+  // position: relative !important;
+  // min-width: 100% !important;
+}
 
-.app, .root, .container {
-  height: 100%;
-  width: 100%;
+#party {
+  height: 85% !important;
+  
+  // height: 100 !important;
+}
+
+
+
+#root {
+  height: 100% !important;
+  width: 100% !important;
 }
 
 svg.svg-inline--fa {
@@ -65,12 +93,13 @@ small {
 }
 
 .rice {
-  font-size: larger !important;
+  font-size: x-large !important;
 }
 
 #beans {
   color: $primary !important;
   text-decoration: underline !important;
+  font-size: xx-large !important;
 
 }
 
@@ -131,6 +160,7 @@ p {
 
 a {
   color: $secondary !important;
+  // font-size: x-large !important;
   
 }
 
@@ -196,11 +226,33 @@ span.navbar-toggler-icon {
 #rumpledoop {
   background-color: $dark !important;
   color: $light !important;
+  //position:absolute !important;
+  // left:0 !important;
+  //bottom:0 !important;
+  // right:0 !important;
+  
 }
 
 #rumpleboop {
   background-color: $dark !important;
   color: $light !important;
+  font-size: larger;
+  border-bottom: 0.25em !important;
+  border-width: 0.25em !important;
+  border-color: $dark !important;
+  border-top-color: $raisedbg !important;
+  border-style:solid !important;
+  // bottom: 0 !important;
+  margin-top:4em;
+  // // // left: 0 !important;
+  // // // right: 0 !important;
+   position:sticky !important;
+  // position: fixed;
+  // bottom: 0;
+  // margin-top: -180px; /* negative value of footer height */
+  // height: 180px;
+  // clear:both;
+  
 }
 
 table, tr, th, thead, tbody, td {
@@ -211,6 +263,11 @@ table, tr, th, thead, tbody, td {
 span {
   background-color: $dark !important;
   color: $light !important;
+  
+}
+
+.accordion-body {
+  font-size: x-large !important;
 }
 
 #pieface {
@@ -223,10 +280,31 @@ span {
     
     margin-left: 6em !important;
   }
+  .rice {
+    font-size: larger !important;
+  }
+  #beans {
+    font-size: x-large !important;
+  }
+  .accordion-body {
+    font-size: larger !important;
+  }
 }
 @media only screen and (max-width: 600px) {
   .navbar-brand {
     font-size: larger !important;
+  }
+  .rice {
+    font-size: larger !important;
+  }
+  #beans {
+    font-size: large !important;
+  }
+  .accordion-body {
+    font-size: large !important;
+  }
+  #rumpleboop {
+    font-size: large !important;
   }
   h1 {
     font-size: xx-large !important;
@@ -235,7 +313,7 @@ span {
     font-size: x-large !important;
   }
   p {
-    font-size: large !important;
+    font-size: larger !important;
   }
   div.bg-dark:nth-child(2) {
     padding:2px !important;

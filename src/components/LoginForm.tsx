@@ -82,21 +82,7 @@ function LoginForm(props: {
           </Button></Container>
         </Form>
       </Card>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+     
     </div>
   );
 }

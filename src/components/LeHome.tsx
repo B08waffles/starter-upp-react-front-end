@@ -32,15 +32,15 @@ function LeHome() {
           <Image src={require('../../public/images/logo.png')} style={{maxWidth: '250px'}} />
         </Container> */}
        
-       <br /><br /><br />
+
 
         {/* <p className="text-center">Powered by the silk of this particular Golden Orb Weaver Spider...</p>
         <Container className="align-center text-center">
           <Image src={require('../../public/images/goldenorb.png')} style={{maxWidth: '400px'}} />{' '}
         </Container> */}
       </div>
-      <br />
-      <br />
+      
+
     </>
   );
 }

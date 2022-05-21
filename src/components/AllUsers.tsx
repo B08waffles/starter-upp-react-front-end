@@ -111,9 +111,7 @@ const AllUsers = (props: {token: any}) => {
                   </Card>
                 );
               })}
-              <br />
-              <br />
-              <br />
+              
             </>
           )}{' '}
         </>

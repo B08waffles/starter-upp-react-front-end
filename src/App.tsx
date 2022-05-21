@@ -109,9 +109,10 @@ export default function App() {
 // rendered when isLoading = true.
 
   return (
-    <div className="app bg-dark text-white">
+    <>
+    <Container className="app">
       <LeNavBar />
-      <Container style={{padding: '2em'}} className="bg-dark text-white">
+      <Container style={{padding: '2em'}} id="party" className="bg-dark text-white " >
         {isLoading ? (
           <LoadingSpinner />
         ) : (
@@ -134,8 +135,11 @@ export default function App() {
             <Route path="/license" element={<License /> } />
           </Routes>
         )}
+        <LeFooter />
       </Container>
-      <LeFooter />
-    </div>
+      
+    </Container>
+    
+    </>
   );
 }

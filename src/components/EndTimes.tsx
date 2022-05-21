@@ -111,7 +111,12 @@ export default function EndTimes() {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
+        <>
+          <aside>
+            <a href="/help">
+              <FontAwesomeIcon icon={faQuestionCircle} />
+            </a>
+          </aside>
           <h1 className="text-center">
             <FontAwesomeIcon icon={faChartPie} /> Chart - Company Ownership
           </h1>{' '}
@@ -127,9 +132,9 @@ export default function EndTimes() {
                 <DropdownButton
                   title="Select a company"
                   defaultValue="Mitsubishi"
-                  onSelect={setACI} className = "text-center"
+                  onSelect={setACI}
+                  className="text-center"
                   style={{minWidth: '22em'}}>
-                    
                   {companies.map((company) => {
                     return (
                       <Dropdown.Item defaultValue="Mitsubishi" key={company.id} eventKey={company.company_name}>
@@ -155,83 +160,80 @@ export default function EndTimes() {
                   </>
                 ) : (
                   <Container id="pieface">
-                  <VictoryPie
-                    style={{
-                      data: {
-                        fillOpacity: 0.9,
-                        stroke: '#f8f8f8',
-                        strokeWidth: 2,
-                      },
-                      labels: {
-                        fontSize: 15,
-                        fill: '#f8f8f8',
-                      },
-                    }}
-                    data={sumResult}
-                    x="user"
-                    y="amount"
-                    theme={VictoryTheme.material}
-                    colorScale="cool"
-                    // height={250}
-                    // width={450}
-                    animate={{
-                      duration: 2000,
-                      easing: 'exp',
-                    }}
-                    endAngle={endAngle}
-                    events={[
-                      {
-                        target: 'data',
-                        eventHandlers: {
-                          onClick: () => {
-                            return [
-                              {
-                                target: 'data',
-                                mutation: ({style}) => {
-                                  return style.fill === '#c43a31' ? null : {style: {fill: '#c43a31'}};
+                    <VictoryPie
+                      style={{
+                        data: {
+                          fillOpacity: 0.9,
+                          stroke: '#f8f8f8',
+                          strokeWidth: 2,
+                        },
+                        labels: {
+                          fontSize: 15,
+                          fill: '#f8f8f8',
+                        },
+                      }}
+                      data={sumResult}
+                      x="user"
+                      y="amount"
+                      theme={VictoryTheme.material}
+                      colorScale="cool"
+                      // height={250}
+                      // width={450}
+                      animate={{
+                        duration: 2000,
+                        easing: 'exp',
+                      }}
+                      endAngle={endAngle}
+                      events={[
+                        {
+                          target: 'data',
+                          eventHandlers: {
+                            onClick: () => {
+                              return [
+                                {
+                                  target: 'data',
+                                  mutation: ({style}) => {
+                                    return style.fill === '#c43a31' ? null : {style: {fill: '#c43a31'}};
+                                  },
                                 },
-                              },
-                              {
-                                target: 'labels',
-                                mutation: ({datum, text}) => {
-                                  return text === `${datum.user} ${Math.round((datum.amount / totals) * 100)}%`
-                                    ? null
-                                    : {text: `${datum.user} ${Math.round((datum.amount / totals) * 100)}%`};
+                                {
+                                  target: 'labels',
+                                  mutation: ({datum, text}) => {
+                                    return text === `${datum.user} ${Math.round((datum.amount / totals) * 100)}%`
+                                      ? null
+                                      : {text: `${datum.user} ${Math.round((datum.amount / totals) * 100)}%`};
+                                  },
                                 },
-                              },
-                            ];
+                              ];
+                            },
                           },
                         },
-                      },
-                    ]}
-                  /></Container>
+                      ]}
+                    />
+                  </Container>
                 )}
-<Table striped bordered hover size="sm">
-  <thead>
-    <tr>
-      
-      <th>Stakeholder</th>
-      <th>Worth</th>
-    </tr>
-  </thead>
-    {sumResult.map((stakeholders) => {
-      return (
-    <>
-  
-  <tbody> 
-    <tr>
-      
-      <td>{stakeholders.user}</td>
-      <td>$ {stakeholders.amount}</td>
-          </tr>
-  </tbody>
-    </>)
-    })}</Table>
-   
-      
+                <Table striped bordered hover size="sm">
+                  <thead>
+                    <tr>
+                      <th>Stakeholder</th>
+                      <th>Worth</th>
+                    </tr>
+                  </thead>
+                  {sumResult.map((stakeholders) => {
+                    return (
+                      <>
+                        <tbody>
+                          <tr>
+                            <td>{stakeholders.user}</td>
+                            <td>$ {stakeholders.amount}</td>
+                          </tr>
+                        </tbody>
+                      </>
+                    );
+                  })}
+                </Table>
 
                 
-                <br style={{marginBottom: '16em'}} />
               </>
             )}
           </>

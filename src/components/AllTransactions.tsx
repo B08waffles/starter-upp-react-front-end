@@ -48,7 +48,7 @@ const AllTransactions = (props: { token: string }) => {
       ) : (
         <><aside><a href = "/help"><FontAwesomeIcon icon={faQuestionCircle}/></a></aside>
           <h1 className="text-center">
-            <FontAwesomeIcon icon={faList12} /> All Transactions
+            <FontAwesomeIcon icon={faList12} /> All Contributions
           </h1>
           <br />
           {logcheck == null || logcheck === "" ? (<>
@@ -148,9 +148,7 @@ const AllTransactions = (props: { token: string }) => {
                   </Card>
                 );
               })}
-              <br/>
-      <br/>
-      <br/>
+         
             </div>
           )}
         </>

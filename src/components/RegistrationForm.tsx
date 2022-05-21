@@ -161,9 +161,7 @@ const RegistrationForm = (props: {
           </Button></Container>
         </Form>
       </Card>
-      <br/>
-      <br/>
-      <br/>
+      
     </div>
   );
 };

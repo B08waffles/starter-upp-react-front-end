@@ -103,9 +103,7 @@ const CompanyList = (props: {token: string}) => {
                   </Card>
                 );
               })}
-              <br />
-              <br />
-              <br />
+             
             </div>
           )}{' '}
         </>
