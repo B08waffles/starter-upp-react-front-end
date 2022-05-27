@@ -63,9 +63,10 @@ export default function App() {
     UserDataService.login(user)
       .then((response) => {
         setToken(response.data.token);
-        setUser(user.username);
+        let userstain = JSON.parse(user)
+        setUser(userstain.username);
         localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', user.username);
+        localStorage.setItem('user', userstain.username);
         setError('');
         setIsLoading(false);
       })
@@ -85,11 +86,13 @@ export default function App() {
     setIsLoading(true);
     UserDataService.signup(user)
       .then((response) => {
-        setToken(response.data.token);
-        setUser(user.username);
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', user.username);
-        console.log(response.data);
+        console.log(response)
+        // setToken(response.data.token);
+        // setUser(user.username);
+        // console.log(user.username)
+        // localStorage.setItem('token', response.data.token);
+        // localStorage.setItem('user', user.username);
+        // console.log(response.data);
         setError('');
         setIsLoading(false);
       })

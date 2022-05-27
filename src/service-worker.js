@@ -1,6 +1,3 @@
-// All of this file is completely useless and not ever used fyi, the real service worker is called
-// service-worker-src
-
 import {version, manifest} from '@parcel/service-worker';
 // import * as manifest from "../src/manifest.webmanifest"
 async function install() {

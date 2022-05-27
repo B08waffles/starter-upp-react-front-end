@@ -56,7 +56,7 @@ const RegistrationForm = (props: {
       first_name: firstname,
       last_name: lastname,
     });
-    navigate('/home');
+    navigate('/login');
     return
   };
 

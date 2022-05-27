@@ -29,10 +29,18 @@ class UserDataService {
     return axios.delete('http://127.0.0.1:8000/users/${id{');
   }
 
-  login(data: any) {
-    return axios.post('http://localhost:8000/login/', data);
+  login(data: string) {
+    return axios.post('http://localhost:8000/api-token-auth/', data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: false,
+    });
   }
-
+  // logdont(username: string, password: string) {
+  //   return axios.post(`http://localhost:8000/api-taken-auth/username=${username}&password=${password}`)
+  // }
+ 
   signup(data: any) {
     return axios.post('http://127.0.0.1:8000/signup/', data);
   }

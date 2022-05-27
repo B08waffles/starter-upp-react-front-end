@@ -1,5 +1,5 @@
 
-# STARTERUPP 
+# STARTER UPP 
 
 > This is the front-end designed for use with the [starter-upp-django-back-end repository](https://github.com/B08waffles/starter-upp-django-back-end)
 ----

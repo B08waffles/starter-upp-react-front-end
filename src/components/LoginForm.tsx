@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { faEyeSlash, faPaperPlane, faQuestionCircle, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function LoginForm(props: {
-  login: (arg0: { username: string; password: string }) => void;
-}) {
+function LoginForm(props: { login: (arg0: string) => void; }){
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +22,11 @@ function LoginForm(props: {
   };
   let navigate = useNavigate();
   function login() {
-    props.login({ username: username, password: password });
+    let user = JSON.stringify({
+      username: username, password: password
+    })
+    
+    props.login(user);
     navigate("/home");
     return;
   }

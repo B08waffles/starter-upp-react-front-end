@@ -6,7 +6,9 @@ import CompanyDataService from '../services/company';
 import LoadingSpinner from './LoadingSpinner';
 import {DropdownButton, Dropdown, Container, Table} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faChartPie, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
+import {faChartPie, faQuestionCircle, faRotateLeft} from '@fortawesome/free-solid-svg-icons';
+import PayrateDataService from '../services/payrate';
+import next from 'next';
 
 export default function EndTimes() {
   const token = localStorage.getItem('token');
@@ -18,6 +20,7 @@ export default function EndTimes() {
   const [endAngle, setEndAngle] = useState(0);
   const [lightMode, setLightMode] = React.useState(false);
   const [totals, setTotals] = React.useState(0);
+  const [payrates, setPayrates] = React.useState([]);
   React.useEffect(() => {
     const json = localStorage.getItem('site-light-mode');
     const currentMode = JSON.parse(json);
@@ -28,12 +31,15 @@ export default function EndTimes() {
     }
   }, []);
   useEffect(() => {
+    setIsLoading(true);
     setTimeout(() => {
       setEndAngle(360);
-    }, 100);
+    }, 10);
+    setIsLoading(false);
   }, [sumResult]);
   useEffect(() => {
     retrievePieData();
+    retrievePayrates();
   }, [token, associated_company_id]);
 
   useEffect(() => {
@@ -46,8 +52,6 @@ export default function EndTimes() {
       .then((response) => {
         //console.table(response.data)
         setCompanies(response.data);
-
-        setIsLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -62,8 +66,6 @@ export default function EndTimes() {
         //console.table(response.data)
         setTransactions(response.data);
         //        console.table(transactions);
-
-        setIsLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -71,24 +73,60 @@ export default function EndTimes() {
       });
   };
 
-  /*useEffect(() => {
-    prepareData();
-  }, [retrievePieData]);*/
+  const retrievePayrates = () => {
+    setTimeout(function pooper() {
+      PayrateDataService.getAllForCompany(token, associated_company_id)
+        .then((response) => {
+          if (response.data.length === 0 || response.data === null) {
+            setPayrates([]);
+          } else {
+            setPayrates(response.data);
+
+            console.log(payrates);
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+          setIsLoading(false);
+        });
+    }, 500);
+  };
+  // useEffect(() => {
+  //   prepareData();
+  // }, [retrievePieData]);
 
   useEffect(() => {
     const prepareData = () => {
+      setIsLoading(true);
+      setSums([]);
       var sums = [];
+      var potato = 1;
       for (var i = 0; i < transactions.length; i++) {
         var obj = transactions[i];
         if (!sums[obj.associated_user]) {
           sums[obj.associated_user] = {
+            index: potato++,
             user: obj.associated_user,
             amount: 0,
           };
           sums.push(sums[obj.associated_user]);
         }
         if (obj.type_of_contribution === 'HW') {
-          sums[obj.associated_user].amount += obj.amount * 30;
+          if (payrates.length === 0 || payrates === null) {
+            var rate: any = 25;
+            sums[obj.associated_user].amount += obj.amount * rate;
+          } else {
+            for (var p = 0; p < payrates.length; p++) {
+              var pays = payrates[p];
+              if (obj.associated_user === pays.associated_user) {
+                var rate: any = pays.pay_rate;
+                console.log(rate);
+              } else {
+                var rate: any = 25;
+              }
+            }
+            sums[obj.associated_user].amount += obj.amount * rate;
+          }
         } else {
           sums[obj.associated_user].amount += obj.amount;
         }
@@ -99,13 +137,12 @@ export default function EndTimes() {
         potals += treb.amount;
       }
       setTotals(potals);
-
       setSums(sums);
+      setIsLoading(false);
       setEndAngle(0);
     };
-
     prepareData();
-  }, [transactions]);
+  }, [payrates]);
   return (
     <>
       {isLoading ? (
@@ -159,7 +196,7 @@ export default function EndTimes() {
                     <br style={{marginBottom: '35em'}} />{' '}
                   </>
                 ) : (
-                  <Container id="pieface">
+                  <Container fluid id="pieface">
                     <VictoryPie
                       style={{
                         data: {
@@ -168,17 +205,16 @@ export default function EndTimes() {
                           strokeWidth: 2,
                         },
                         labels: {
-                          fontSize: 15,
                           fill: '#f8f8f8',
                         },
                       }}
                       data={sumResult}
-                      x="user"
+                      x="index"
                       y="amount"
                       theme={VictoryTheme.material}
                       colorScale="cool"
                       // height={250}
-                      // width={450}
+                      // width={650}
                       animate={{
                         duration: 2000,
                         easing: 'exp',
@@ -199,9 +235,9 @@ export default function EndTimes() {
                                 {
                                   target: 'labels',
                                   mutation: ({datum, text}) => {
-                                    return text === `${datum.user} ${Math.round((datum.amount / totals) * 100)}%`
+                                    return text === `${datum.index}. ${Math.round((datum.amount / totals) * 100)}%`
                                       ? null
-                                      : {text: `${datum.user} ${Math.round((datum.amount / totals) * 100)}%`};
+                                      : {text: `${datum.index}. ${Math.round((datum.amount / totals) * 100)}%`};
                                   },
                                 },
                               ];
@@ -211,10 +247,11 @@ export default function EndTimes() {
                       ]}
                     />
                   </Container>
-                )}
+                )}<small>* if a user has no associated hourly pay rate, $25 per hour is the default</small>
                 <Table striped bordered hover size="sm">
                   <thead>
                     <tr>
+                      <th>#</th>
                       <th>Stakeholder</th>
                       <th>Worth</th>
                     </tr>
@@ -224,6 +261,7 @@ export default function EndTimes() {
                       <>
                         <tbody>
                           <tr>
+                            <td>{stakeholders.index}</td>
                             <td>{stakeholders.user}</td>
                             <td>$ {stakeholders.amount}</td>
                           </tr>
@@ -232,8 +270,6 @@ export default function EndTimes() {
                     );
                   })}
                 </Table>
-
-                
               </>
             )}
           </>
