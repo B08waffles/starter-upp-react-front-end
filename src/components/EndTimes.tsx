@@ -269,7 +269,7 @@ export default function EndTimes() {
                             <td>{stakeholders.index}</td>
                             <td>{stakeholders.user}</td>
                             <td>$ {stakeholders.amount}</td>
-                            <td>{stakeholders.payrate}</td>
+                            <td>$ {stakeholders.payrate}</td>
                           </tr>
                         </tbody>
                       </>
