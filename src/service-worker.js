@@ -14,26 +14,18 @@ async function activate() {
 }
 addEventListener('activate', e => e.waitUntil(activate()));
 
-// const deleteCache = async key => {
-//   await caches.delete(key)
-// }
-
-// const deleteOldCaches = async () => {
-//    const cacheKeepList = [];
-//    const keyList = await caches.keys()
-//    const cachesToDelete = keyList.filter(key => !cacheKeepList.includes(key))
-//    await Promise.all(cachesToDelete.map(deleteCache));
-// }
-
-// self.addEventListener('activate', (event) => {
-//   event.waitUntil(deleteOldCaches());
+// self.addEventListener('fetch', function (event) {
+//   event.respondWith(
+//     caches.open(version).then(async function (cache) {
+//       const response = await cache.match(event.request);
+//       var fetchPromise = fetch(event.request).then(function (networkResponse) {
+//         cache.put(event.request, networkResponse.clone());
+//         return networkResponse;
+//       });
+//       return response || fetchPromise;
+//     }),
+//   );
 // });
-
-
-// const addResourcesToCache = async (resources) => {
-//   const cache = await caches.open(version);
-//   await cache.addAll(resources);
-// };
 
 const putInCache = async (request, response) => {
   const cache = await caches.open(version);
@@ -45,6 +37,7 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
   const responseFromCache = await caches.match(request);
   if (responseFromCache) {
     return responseFromCache;
+   
   }
 
   // Next try to use (and cache) the preloaded response, if it's there
@@ -55,6 +48,32 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
     return preloadResponse;
   }
 
+  // // next we try stale while revalidate
+  // if (responseFromCache && preloadResponse) {
+  //   try {
+  //     const responseFromNetwork = await fetch(request);
+  //     // response may be used only once
+  //     // we need to save clone to put one copy in cache
+  //     // and serve second one
+  //     putInCache(request, responseFromNetwork.clone());
+  //     return responseFromNetwork;
+  
+      
+  //   } catch (error) {
+  //     const fallbackResponse = await caches.match(fallbackUrl);
+  //     if (fallbackResponse) {
+  //       return fallbackResponse;
+  //     }
+  //     // when even the fallback response is not available,
+  //     // there is nothing we can do, but we must always
+  //     // return a Response object
+  //     return new Response('Network error happened', {
+  //       status: 408,
+  //       headers: { 'Content-Type': 'text/plain' },
+  //     });
+  //   }  
+  // }
+
   // Next try to get the resource from the network
   try {
     const responseFromNetwork = await fetch(request);
@@ -63,6 +82,8 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
     // and serve second one
     putInCache(request, responseFromNetwork.clone());
     return responseFromNetwork;
+
+    
   } catch (error) {
     const fallbackResponse = await caches.match(fallbackUrl);
     if (fallbackResponse) {
@@ -100,6 +121,29 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
+// CODE BELOW IS MY "WORKING OUT" FOR LATER REFERENCE
+
+// const deleteCache = async key => {
+//   await caches.delete(key)
+// }
+
+// const deleteOldCaches = async () => {
+//    const cacheKeepList = [];
+//    const keyList = await caches.keys()
+//    const cachesToDelete = keyList.filter(key => !cacheKeepList.includes(key))
+//    await Promise.all(cachesToDelete.map(deleteCache));
+// }
+
+// self.addEventListener('activate', (event) => {
+//   event.waitUntil(deleteOldCaches());
+// });
+
+
+// const addResourcesToCache = async (resources) => {
+//   const cache = await caches.open(version);
+//   await cache.addAll(resources);
+// };
 
 // const CACHE_NAME = 'network-app-cache';
 // const urlsToCache = ['/dist', '/', '*'];

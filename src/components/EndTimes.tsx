@@ -99,6 +99,7 @@ export default function EndTimes() {
     const prepareData = () => {
       setIsLoading(true);
       setSums([]);
+      
       var sums = [];
       var potato = 1;
       for (var i = 0; i < transactions.length; i++) {
@@ -108,6 +109,7 @@ export default function EndTimes() {
             index: potato++,
             user: obj.associated_user,
             amount: 0,
+            payrate: 25,
           };
           sums.push(sums[obj.associated_user]);
         }
@@ -120,14 +122,15 @@ export default function EndTimes() {
               var pays = payrates[p];
               if (obj.associated_user === pays.associated_user) {
                 var rate: any = pays.pay_rate;
-                console.log(rate);
-              } else {
-                var rate: any = 25;
+                sums[obj.associated_user].payrate = rate;
+                break;
               }
             }
             sums[obj.associated_user].amount += obj.amount * rate;
           }
         } else {
+          var rate: any = 25
+          sums[obj.associated_user].payrate = rate;
           sums[obj.associated_user].amount += obj.amount;
         }
       }
@@ -254,9 +257,11 @@ export default function EndTimes() {
                       <th>#</th>
                       <th>Stakeholder</th>
                       <th>Worth</th>
+                      <th>Pay rate</th>
                     </tr>
                   </thead>
                   {sumResult.map((stakeholders) => {
+                  
                     return (
                       <>
                         <tbody>
@@ -264,6 +269,7 @@ export default function EndTimes() {
                             <td>{stakeholders.index}</td>
                             <td>{stakeholders.user}</td>
                             <td>$ {stakeholders.amount}</td>
+                            <td>{stakeholders.payrate}</td>
                           </tr>
                         </tbody>
                       </>
