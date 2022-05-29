@@ -14,10 +14,11 @@ import TransactionDataService from "../services/transaction";
 import LoadingSpinner from "./LoadingSpinner";
 import CompanyDataService from "../services/company";
 import { useEffect } from "react";
+import { ChangeEvent } from "react";
 
 const AddTransaction = (props: any) => {
   const [associated_company_id, setACI] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [type_of_contribution, setTOC] = useState("");
   const [associated_user_id, setAUI] = useState("");
   const logcheck = localStorage.getItem("user");
@@ -47,12 +48,12 @@ const AddTransaction = (props: any) => {
 
   const catagories = ["HW", "MI"];
 
-  const onChangeACI = (e: { target: { value: any } }) => {
+  const onChangeACI = (e: { target: { value: string } }) => {
     const associated_company_id = e.target.value;
     setACI(associated_company_id);
   };
-  const onChangeAmount = (e: { target: { value: any } }) => {
-    const amount = e.target.value;
+  const onChangeAmount = (e: ChangeEvent<HTMLInputElement>) => {
+    const amount =  parseFloat(e.target.value);
     setAmount(amount);
   };
   // const onChangeTOC = (e) => {

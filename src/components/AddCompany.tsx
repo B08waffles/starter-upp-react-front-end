@@ -1,6 +1,6 @@
 import {faPen, faPencilAlt, faQuestionCircle, faSchool, faSchoolCircleCheck} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {Form, Button, Card, Alert, Container} from 'react-bootstrap';
 import CompanyDataService from '../services/company';
 import LoadingSpinner from './LoadingSpinner';
@@ -13,11 +13,11 @@ const AddCompany = () => {
   const logcheck = localStorage.getItem('user'); // Check if theres a user
   const token = localStorage.getItem('token'); // grab the token if there is one
   const [isLoading, setIsLoading] = React.useState(false);
-  const onChangeCompanyName = (e: {target: {value: any}}) => {
+  const onChangeCompanyName = (e: ChangeEvent<HTMLInputElement>) => {
     const company_name = e.target.value;
     setCompanyName(company_name);
   };
-  const onChangeCompanySlogan = (e: {target: {value: any}}) => {
+  const onChangeCompanySlogan = (e: ChangeEvent<HTMLInputElement>) => {
     const company_slogan = e.target.value;
     setCompanySlogan(company_slogan);
   };

@@ -1,6 +1,6 @@
 import { faEnvelope, faEyeSlash, faPaperPlane, faQuestionCircle, faUserAlt, faUserCircle, faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import UserDataService from "../services/users";
@@ -23,27 +23,27 @@ const RegistrationForm = (props: {
   // const logcheck = localStorage.getItem("user");
   // const token = JSON.stringify(localStorage.getItem("token"));
 
-  const onChangeUsername = (e: { target: { value: any } }) => {
+  const onChangeUsername = (e: ChangeEvent<HTMLInputElement>) => {
     const username = e.target.value;
     setUsername(username);
   };
 
-  const onChangeEmail = (e: { target: { value: any } }) => {
+  const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
     setEmail(email);
   };
 
-  const onChangeFirstname = (e: { target: { value: any } }) => {
+  const onChangeFirstname = (e: ChangeEvent<HTMLInputElement>) => {
     const firstname = e.target.value;
     setFirstname(firstname);
   };
 
-  const onChangeLastname = (e: { target: { value: any } }) => {
+  const onChangeLastname = (e: ChangeEvent<HTMLInputElement>) => {
     const lastname = e.target.value;
     setLastname(lastname);
   };
 
-  const onChangePassword = (e: { target: { value: any } }) => {
+  const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     const password = e.target.value;
     setPassword(password);
   };

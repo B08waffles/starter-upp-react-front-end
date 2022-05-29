@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,11 +9,11 @@ function LoginForm(props: { login: (arg0: string) => void; }){
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const onChangeUsername = (e: { target: { value: any } }) => {
+  const onChangeUsername = (e: ChangeEvent<HTMLInputElement>) => {
     const username = e.target.value;
     setUsername(username);
   };
-  const onChangePassword = (e: { target: { value: any } }) => {
+  const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     const password = e.target.value;
     setPassword(password);
   };
