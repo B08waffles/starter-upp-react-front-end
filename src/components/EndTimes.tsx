@@ -8,7 +8,7 @@ import {DropdownButton, Dropdown, Container, Table} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChartPie, faQuestionCircle, faRotateLeft} from '@fortawesome/free-solid-svg-icons';
 import PayrateDataService from '../services/payrate';
-import next from 'next';
+
 
 export default function EndTimes() {
   const token = localStorage.getItem('token');

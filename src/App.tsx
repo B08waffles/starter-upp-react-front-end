@@ -53,12 +53,12 @@ export default function App() {
     const json = JSON.stringify(lightMode);
     localStorage.setItem('site-light-mode', json);
   }, [lightMode]);
-
+  
   // Below is where we rope in the UserDataService class which has the login function
   // from which we dictate login functionality from by setting the username and
   // auth token to localStorage to give this Single Page Application "State"
 
-  async function login(user = null) {
+  async function login(user:any = null) {
     setIsLoading(true);
     UserDataService.login(user)
       .then((response) => {
@@ -81,7 +81,7 @@ export default function App() {
 // basicly we post their details and from the server response we set their username and 
 // auth token to localStorage, just like what we did in the login function above
 
-  async function signup(user = null) {
+  async function signup(user:any = null) {
     // default user to null
     setIsLoading(true);
     UserDataService.signup(user)

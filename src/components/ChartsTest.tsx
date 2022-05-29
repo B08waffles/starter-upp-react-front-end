@@ -67,7 +67,7 @@ export default function ChartsTest() {
       });
   };
 
-  const resultMI = [];
+  const resultMI: any[] = [];
   transactions3.reduce(function (res, value) {
     if (!res[value.associated_company]) {
       res[value.associated_company] = {
@@ -80,7 +80,7 @@ export default function ChartsTest() {
     return res;
   }, {});
 
-  const resultHW = [];
+  const resultHW: any[] = [];
   transactions4.reduce(function (res, value) {
     if (!res[value.associated_company]) {
       res[value.associated_company] = {
