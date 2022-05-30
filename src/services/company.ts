@@ -1,4 +1,5 @@
 import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
 // Here we define our axios/xml/fetch requests that we bring into our components and App.tsx file.
@@ -7,11 +8,11 @@ axios.defaults.withCredentials = true;
 class CompanyDataService {
   getAll(token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token ' + token;
-    return axios.get('http://127.0.0.1:8000/companys/');
+    return axios.get('/companys/');
   }
 
   createCompany(data: string, token: string) {
-    return axios.post('http://127.0.0.1:8000/companys/', data, {
+    return axios.post('/companys/', data, {
       headers: {
         Authorization: 'Token ' + token,
         'Content-Type': 'application/vnd.api+json',
@@ -22,12 +23,12 @@ class CompanyDataService {
 
   updateCompany(id: any, data: any, token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token' + token;
-    return axios.put('http://127.0.0.1:8000/companys/${id}', data);
+    return axios.put('/companys/${id}', data);
   }
 
   deleteCompany(id: any, token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token' + token;
-    return axios.delete('http://127.0.0.1:8000/companys/${id{');
+    return axios.delete('/companys/${id}');
   }
 }
 

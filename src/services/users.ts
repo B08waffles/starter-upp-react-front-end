@@ -1,6 +1,6 @@
 import axios from 'axios';
 axios.defaults.withCredentials = false;
-
+axios.defaults.baseURL = 'http://localhost:8000';
 // Here we define our axios/xml/fetch requests that we bring into our components and App.tsx file.
 // Since our back-end API requires an auth token, we must attach it to the "Authorization" header like so.
 
@@ -9,11 +9,11 @@ axios.defaults.withCredentials = false;
 class UserDataService {
   getAll(token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token ' + token;
-    return axios.get('http://127.0.0.1:8000/users/');
+    return axios.get('/users/');
   }
 
   createUser(data: string) {
-    return axios.post('http://127.0.0.1:8000/signup/', data, {
+    return axios.post('/signup/', data, {
       headers: {
         'Content-Type': 'application/vnd.api+json',
       },
@@ -23,16 +23,16 @@ class UserDataService {
 
   updateUser(id: any, data: any, token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token' + token;
-    return axios.put('http://127.0.0.1:8000/users/${id}', data);
+    return axios.put('/users/${id}', data);
   }
 
   deleteUser(id: any, token: string) {
     axios.defaults.headers.common['Authorization'] = 'Token' + token;
-    return axios.delete('http://127.0.0.1:8000/users/${id{');
+    return axios.delete('/users/${id{');
   }
 
   login(data: string) {
-    return axios.post('http://localhost:8000/api-token-auth/', data, {
+    return axios.post('/api-token-auth/', data, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -44,7 +44,7 @@ class UserDataService {
   // }
  
   signup(data: any) {
-    return axios.post('http://127.0.0.1:8000/signup/', data);
+    return axios.post('/signup/', data);
   }
 }
 
