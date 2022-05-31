@@ -1,6 +1,6 @@
 import axios from 'axios';
 axios.defaults.withCredentials = false;
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'https://starter-upp-django-back-end.herokuapp.com';
 // Here we define our axios/xml/fetch requests that we bring into our components and App.tsx file.
 // Since our back-end API requires an auth token, we must attach it to the "Authorization" header like so.
 

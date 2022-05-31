@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'https://starter-upp-django-back-end.herokuapp.com';
 class PayrateDataService {
     getAll (token: string) {
         axios.defaults.headers.common['Authorization'] = 'Token ' + token;
