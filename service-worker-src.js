@@ -1,5 +1,5 @@
-if ('function' === typeof import('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js')) {
-    import('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
+if ('function' === typeof importScripts) {
+    importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
 
     // Workbox loaded
     if (workbox) {

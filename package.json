@@ -26,8 +26,8 @@
   "author": "b08waffles",
   "license": "GNU General Public License v2.0",
   "devDependencies": {
-    "@parcel/packager-raw-url": "^2.4.1",
-    "@parcel/packager-ts": "^2.5.0",
+    "@parcel/packager-raw-url": "^2.6.0",
+    "@parcel/packager-ts": "^2.6.0",
     "@parcel/transformer-sass": "^2.6.0",
     "@parcel/transformer-typescript-types": "^2.5.0",
     "@parcel/transformer-webmanifest": "^2.6.0",
@@ -46,6 +46,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@parcel/runtime-browser-hmr": "^2.6.0",
     "@parcel/service-worker": "^2.5.0",
     "@parcel/transformer-js": "^2.6.0",
     "@types/axios": "^0.14.0",
@@ -62,6 +63,7 @@
     "react-router-bootstrap": "^0.26.1",
     "react-router-dom": "^6.3.0",
     "victory": "^36.3.2",
+    "workbox": "^0.0.0",
     "workbox-cli": "^6.5.3"
   }
 }
