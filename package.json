@@ -4,6 +4,9 @@
   "description": "Capitalisation System",
   "source": "src/index.html",
   "default": "src/index.html",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
@@ -60,6 +63,7 @@
     "react-dom": "^17.0.2",
     "react-router-bootstrap": "^0.26.1",
     "react-router-dom": "^6.3.0",
-    "victory": "^36.3.2"
+    "victory": "^36.3.2",
+    "workbox-cli": "^6.5.3"
   }
 }
