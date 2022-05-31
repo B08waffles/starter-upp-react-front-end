@@ -9,7 +9,7 @@
     "start": "parcel src/index.html",
     "clean": "rm -rf dist",
     "build": "parcel build src/index.html",
-    "postbuild": "npm run workbox2",
+    "postbuild": "npm run workbox2 && cp _redirects dist",
     "workbox": "workbox generateSW workbox-config.ts",
     "workbox2": "workbox injectManifest workbox-config.ts",
     "fresh-start": "npm run clean && npm run build && serve -s dist",
